@@ -36,7 +36,7 @@ const ButtonWrapper = styled.div`
   left: auto;
 `;
 
-//Example way to handle closing the modal
+//Example way to handle toggling the modal
 // import React, {useState} from "react";
 // const [isOpen, setIsOpen] = useState(false);
 
@@ -44,11 +44,19 @@ const ButtonWrapper = styled.div`
 //   setIsOpen(false);
 // };
 
-//  <Modal>
-//    <YourComponent
-//      closeModal={handleClose}
-//    />
-//  </Modal>
+// const Example = () => {
+//   return (
+//     <div>
+//       {isOpen && (
+//         <Modal>
+//           <YourComponent close={handleClose} />
+//         </Modal>
+//       )}
+//       <button onClick{() => setIsOpen(true)}>Open Modal</button>
+//     </div>
+//   );
+// };
+ 
 
 const Modal = (props) => {
   return (
