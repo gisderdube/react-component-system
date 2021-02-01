@@ -57,17 +57,27 @@ const ButtonWrapper = styled.div`
 //   );
 // };
 
-const Modal = (props) => {
+const Modal = ({
+  margin,
+  bgColor,
+  borderRadius,
+  padding,
+  position,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <Overlay>
       <Content
-        margin={props.margin}
-        bgColor={props.bgColor}
-        borderRadius={props.borderRadius}
-        padding={props.padding}
-        position={props.position}
-        height={props.height}
-        width={props.width}
+        margin={margin}
+        bgColor={bgColor}
+        borderRadius={borderRadius}
+        padding={padding}
+        position={position}
+        height={height}
+        width={width}
+        {...props}
       >
         {props.children}
       </Content>
