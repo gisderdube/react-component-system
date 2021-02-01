@@ -18,13 +18,13 @@ const Overlay = styled.div`
 
 // Cutomization props
 const Content = styled.div`
-  margin: ${(props) => props.setMargin || "15% auto"};
-  background-color: ${(props) => props.setBgColor || "white"};
-  border-radius: ${(props) => props.setBorderRadius || "0.25rem"};
-  padding: ${(props) => props.setPadding || "2rem"};
-  position: ${(props) => props.setPosition || "relative"};
-  height: ${(props) => props.setHeight || "50vh"};
-  width: ${(props) => props.setWidth || "50vw"};
+  margin: ${(props) => props.margin || "15% auto"};
+  background-color: ${(props) => props.bgColor || "white"};
+  border-radius: ${(props) => props.borderRadius || "0.25rem"};
+  padding: ${(props) => props.padding || "2rem"};
+  position: ${(props) => props.position || "relative"};
+  height: ${(props) => props.height || "50vh"};
+  width: ${(props) => props.width || "50vw"};
 `;
 
 //Optional
@@ -56,19 +56,18 @@ const ButtonWrapper = styled.div`
 //     </div>
 //   );
 // };
- 
 
 const Modal = (props) => {
   return (
     <Overlay>
       <Content
-        setMargin={props.setMargin}
-        setBgColor={props.setBgColor}
-        setBorderRadius={props.setBorderRadius}
-        setPadding={props.setPadding}
-        setPosition={props.setPosition}
-        setHeight={props.setHeight}
-        setWidth={props.setWidth}
+        margin={props.margin}
+        bgColor={props.bgColor}
+        borderRadius={props.borderRadius}
+        padding={props.padding}
+        position={props.position}
+        height={props.height}
+        width={props.width}
       >
         {props.children}
       </Content>
