@@ -68,39 +68,37 @@ const Title = (props) => {
 };
 
 const TagInput = (props) => {
-  let text, tagForm;
+  const [value, setValue] = useState(props.value);
+
   const tagEvent = (e) => {
-    const tag = text.value;
-    const tagGroup = tag.split(" ");
+    const tagGroup = value.split(" ");
     const titles = props.titles;
     const hasTitles = Object.keys(titles).length > 0;
 
     if (e.keyCode === 32 || e.keyCode === 13) {
       e.preventDefault();
       tagGroup.map((tag) => props.addTitle(tag));
-      tagForm.reset();
+      setValue("");
     }
 
     if (e.keyCode === 8 && hasTitles && tag === "") {
       e.preventDefault();
       props.editLastTitle();
-      tagForm.reset();
+      setValue("");
     }
   };
 
   return (
     <InputWrapper>
-      <Form ref={(input) => (tagForm = input)}>
-        <Input
-          ref={(input) => (text = input)}
-          type="text"
-          name="new-item"
-          placeholder="Add tag and press space"
-          autoComplete="off"
-          defaultValue={props.value}
-          onKeyDown={(e) => tagEvent(e)}
-        />
-      </Form>
+      <Input
+        type="text"
+        name="new-item"
+        placeholder="Type and press space"
+        autoComplete="off"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onKeyDown={(e) => tagEvent(e)}
+      />
     </InputWrapper>
   );
 };
